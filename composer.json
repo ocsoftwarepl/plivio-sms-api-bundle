@@ -1,0 +1,24 @@
+{
+  "name": "ocsoftwarepl/plivio-sms-api-bundle",
+  "description": "bundle plivio-sms-api",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "bf"
+    }
+  ],
+  "keywords": [
+    "sms esendex"
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "plivo/plivo-php": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "OCSoftwarePL\\PlivioSmsApiBundle\\": ""
+    }
+  }
+}
