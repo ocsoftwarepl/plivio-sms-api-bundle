@@ -2,11 +2,10 @@
 
 namespace OCSoftwarePL\PlivioSmsApiBundle\Sms;
 
-
 use OCSoftwarePL\PlivioSmsApiBundle\Sms\DTO\Sms;
 use Plivo\RestAPI;
 
-class PlivoSmsApiSender
+class PlivioSmsApiSender
 {
     private $config = [];
     private $senderName;
