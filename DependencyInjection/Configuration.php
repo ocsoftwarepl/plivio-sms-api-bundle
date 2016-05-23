@@ -20,9 +20,15 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('ocs_plivio_sms_api');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode->children()
+            ->scalarNode('sender')->defaultNull()->end()
+            ->scalarNode('account')->isRequired()->end()
+            ->scalarNode('token')->isRequired()->end()
+            ->scalarNode('callback_url')->defaultNull()->end()
+            ->scalarNode('callback_method')->defaultValue('POST')->end()
+            ->scalarNode('api_url')->defaultValue("https://api.plivo.com")->end()
+            ->scalarNode('api_version')->defaultValue("v1")->end()
+            ->end();
 
         return $treeBuilder;
     }
