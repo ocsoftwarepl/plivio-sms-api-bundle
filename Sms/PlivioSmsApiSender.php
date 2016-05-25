@@ -2,6 +2,7 @@
 
 namespace OCSoftwarePL\PlivioSmsApiBundle\Sms;
 
+use OCSoftwarePL\PlivioSmsApiBundle\Sms\DTO\PlivioSendResponse;
 use OCSoftwarePL\PlivioSmsApiBundle\Sms\DTO\Sms;
 use Plivo\RestAPI;
 
@@ -34,13 +35,12 @@ class PlivioSmsApiSender
 
     /**
      * @param Sms $sms
-     * @return array
+     * @return PlivioSendResponse
      * @throws \Exception
      */
     public function sendSms(Sms $sms)
     {
         try {
-
             $plivioSms = [
                 'src' => $this->config['sender'],
                 'dst' => $sms->phone,
@@ -50,7 +50,9 @@ class PlivioSmsApiSender
                 'method' => $this->config['callback_method']
             ];
 
-            return $this->getApi()->send_message($plivioSms);
+            $response = $this->getApi()->send_message($plivioSms);
+
+            return new PlivioSendResponse($response);
 
         } catch (\Exception $e) {
             throw $e;
