@@ -46,8 +46,8 @@ class PlivioSmsApiSender
                 'dst' => $sms->phone,
                 'text' => $sms->msg,
                 'type' => 'sms',
-                'url' => $sms->callbackUrl ?: $this->config['callbaack_url'],
-                'method' => $this->config['callbaack_method']
+                'url' => $sms->callbackUrl ?: $this->config['callback_url'],
+                'method' => $this->config['callback_method']
             ];
 
             return $this->getApi()->send_message($plivioSms);
