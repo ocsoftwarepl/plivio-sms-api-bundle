@@ -8,6 +8,7 @@ class PlivioSendResponse
     public $smsId;
     public $message;
     public $status;
+    public $raw;
 
     public function __construct(array  $response)
     {
@@ -18,6 +19,7 @@ class PlivioSendResponse
         $this->smsId = $response['response']['message_uuid'][0];
         $this->status = $response['status'];
         $this->message = $response['response']['message'];
+        $this->raw = serialize($response);
     }
 
     /**
